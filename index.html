@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Unidos por un Hermano</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <img src="assets/logo.png" alt="Logo Unidos por un Hermano" class="logo">
+  <h1 class="site-title">Unidos por un Hermano</h1>
+</header>
+
+  <!-- Animación de carga -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="dot dot1"></div>
+    <div class="dot dot2"></div>
+    <div class="dot dot3"></div>
+  </div>
+
+    <div class="main-content" style="display:none;">
+  <!-- Banner -->
+    <div class="banner-outer">
+      <div class="banner-inner">
+        <img src="assets/banner.jpg" alt="Banner principal" class="banner-img">
+      </div>
+    </div>
+
+    <!-- Navegación -->
+    <div class="nav-bar">
+      <button class="nav-button active" data-target="objetivos">OBJETIVOS</button>
+      <button class="nav-button" data-target="quienes">QUIENES SOMOS</button>
+      <button class="nav-button" data-target="archivos">ARCHIVOS</button>
+      <button class="nav-button" data-target="publicaciones">PUBLICACIONES</button>
+      <button class="nav-button" data-target="reflexiones">REFLEXIONES</button>
+      <button class="nav-button" data-target="motivacional">MOTIVACIONAL</button>
+      <button class="nav-button" data-target="donaciones">DONACIONES</button>
+      <button class="nav-button" data-target="contacto">CONTACTO</button>
+    </div>
+
+    <!-- Secciones -->
+    <section id="objetivos" class="content-section">
+      <div class="left-column">
+        <h2 class="title">Nuestros Objetivos</h2>
+        <p class="description">Texto explicativo sobre los objetivos principales de la organización.</p>
+      </div>
+      <div class="right-column">
+        <h2 class="right-title">Objetivos</h2>
+        <p class="right-description">Descripción breve o llamada a la acción.</p>
+      </div>
+    </section>
+
+    <section id="quienes" class="content-section">
+      <div class="left-column">
+        <h2 class="title">Quiénes Somos</h2>
+        <p class="description">Información sobre los integrantes o la historia de la organización.</p>
+      </div>
+      <div class="right-column">
+        <h2 class="right-title">Nuestra Historia</h2>
+        <p class="right-description">Contexto institucional o humano del grupo.</p>
+      </div>
+    </section>
+
+    <section id="archivos" class="content-section">
+      <div class="left-column">
+        <h2 class="title">Archivos</h2>
+        <p class="description">Aquí podés acceder a documentos, PDFs o material relevante.</p>
+      </div>
+      <div class="right-column">
+        <h2 class="right-title">Recursos</h2>
+        <p class="right-description">Acceso organizado a materiales.</p>
+      </div>
+    </section>
+
+  <section id="galeria" class="content-section galeria-section one-column-section">
+    <div class="carrusel-container">
+      <img id="imagen-carrusel" class="carrusel-img" src="" alt="Imagen destacada">
+      <div class="indicator-wrapper">
+        <div class="indicator-container">
+        </div>
+      </div>
+    </div>
+    <div class="collage-container" id="collage-container">
+    </div>
+  </section>
+
+  <!-- Visor en pantalla completa -->
+<div id="visor" class="visor" style="display:none">
+  <span id="cerrar-visor" class="cerrar-visor">&times;</span>
+  <img id="visor-imagen" class="visor-imagen" src="" alt="Imagen en pantalla completa" style="display:none" />
+  <video id="visor-video" class="visor-video" controls style="display:none; max-width:90%; max-height:90%; border-radius:10px;"></video>
+</div>
+
+  <section id="publicaciones" class="content-section publicaciones-section one-column-section">
+    <div>
+      <h2 class="title">Publicaciones</h2>
+      <div id="contenedor-publicaciones" class="publicaciones-container">
+          <!-- Aquí se insertarán dinámicamente las publicaciones -->
+      </div>
+      </div>
+    </section>
+
+    <section id="reflexiones" class="content-section">
+      <div class="left-column">
+        <h2 class="title">Reflexiones</h2>
+        <p class="description">Espacio para compartir ideas, pensamientos y aprendizajes.</p>
+      </div>
+      <div class="right-column">
+        <h2 class="right-title">Pensamientos</h2>
+        <p class="right-description">Textos motivadores o reflexivos.</p>
+      </div>
+    </section>
+
+  <section id="motivacional" class="content-section">
+  <div class="left-column">
+    <h2 class="title">Motivacional</h2>
+    <p class="description">Videos o mensajes para inspirar y dar ánimo.</p>
+  </div>
+  <div class="right-column">
+    <h2 class="right-title">Inspiración</h2>
+    <p class="right-description">Historias motivadoras o contenido positivo.</p>
+  </div>
+</section>
+
+  <section id="donaciones" class="content-section">
+    <div class="left-column">
+      <h2 class="title">Donaciones</h2>
+      <p class="description">Tu aporte nos ayuda a seguir ayudando. Cada donación cuenta para sostener y expandir nuestras actividades.</p>
+      <button class="btn" id="btn-donar">Donar</button>
+    </div>
+    <div class="right-column">
+      <h2 class="right-title">Agradecimientos</h2>
+      <div class="tabla-donaciones-wrapper">
+      <table id="tabla-donadores" class="donaciones-table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th></th>
+            <th>Monto</th>
+          </tr>
+        </thead>
+      </table>
+      <div class="scrollable-body">
+        <table class="donaciones-table">
+          <tbody id="cuerpo-donadores">
+            <!-- Rellenado con JS -->
+          </tbody>
+        </table>
+      </div>
+     </div>
+     <br>
+    </div>
+  </section>
+
+  <section id="contacto" class="one-column-section">
+    <h2 class="title">Contacto</h2>
+    <p class="description">Formulario, redes sociales o medios para comunicarse.</p>
+
+  <div id="redes-wrapper">
+    <div id="redes-container">
+      <!-- JS insertará las redes aquí -->
+    </div>
+    <button id="scroll-left" class="scroll-btn">&#9664;</button>
+    <button id="scroll-right" class="scroll-btn">&#9654;</button>
+  </div>
+  </section>
+
+  </div> <!--Cierre de la clase principal-->
+
+  <div id="modalDonacion" class="modal">
+    <div class="modal-content">
+      <h2>Realizar Donación</h2>
+
+      <div class="form-group">
+        <label for="nombreDonador">Tu nombre</label>
+        <input type="text" id="nombreDonador" />
+      </div>
+
+      <div class="form-group">
+        <label for="montoDonacion">Monto (ARS)</label>
+        <input type="number" id="montoDonacion" min="10" />
+      </div>
+
+      <div class="modal-buttons">
+        <button class="btn" onclick="confirmarDonacion()">Confirmar</button>
+        <button class="btn cancel" onclick="cerrarModalDonacion()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-functions-compat.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,817 @@
+:root {
+  --primary-color: #a3c4a2; /* Verde neutro inspirado en el logo */
+  --background-color: #ffffff;
+  --indicator-color: #ffffff;
+  --indicator-active: #6ba675;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--primary-color);
+}
+
+.site-header .logo {
+  width: 50px;
+  height: auto;
+}
+
+.site-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--background-color);
+  color: #333;
+  padding: 20px 50px; /* Padding blanco lateral */
+}
+
+.banner-outer {
+  background-color: var(--primary-color);
+  padding: 40px 0 40px 0; /* Más padding arriba y abajo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner-img {
+  width: 100%;               /* Que ocupe todo el ancho del contenedor */
+  max-width: 1100px;         /* Podés ajustar esto si querés que sea más grande aún */
+  height: auto;
+  display: block;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  margin-bottom: -30px;      /* Esto hace que "pise" un poco el fondo siguiente */
+}
+
+/* Contenedor de indicadores abajo de la imagen */
+.indicator-container {
+  display: flex;
+  gap: 10px;
+}
+
+.indicator-wrapper {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+
+  background-color: rgba(255, 255, 255, 0.7); /* Blanco semitransparente */
+  padding: 8px 16px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra suave para más contraste */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  background-color: var(--indicator-color);
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.indicator.active {
+  background-color: var(--indicator-active);
+}
+
+/* Barra de navegación (gris oscura) */
+.nav-bar {
+  background-color: #444;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+/* Barra de navegación (gris oscura) */
+.nav-bar {
+  background-color: #747474;
+  display: flex;
+  flex-wrap: wrap; /* Permite que los botones bajen de línea si no entran */
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  gap: 1px; /* separa ligeramente los botones cuando hay wrap */
+}
+
+/* Botones planos como cortes verticales */
+.nav-button {
+  flex: 1 1 120px; /* crece, encoge, ancho mínimo */
+  padding: 20px 10px;
+  background-color: #aaaaaa;
+  color: #fff;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap; /* evita que el texto se corte */
+}
+
+/* Botón activo */
+.nav-button.active {
+  background-color: #222;
+  border-bottom: 4px solid var(--primary-color);
+}
+
+.nav-button:hover {
+  background-color: #555;
+}
+
+.content-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 50px; /* Sigue el padding general lateral del body */
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.left-column {
+  flex: 0 1 60%; /* Ocupa aprox. 60% */
+  padding: 0 40px; 
+  box-sizing: border-box;
+}
+
+.right-column {
+  flex: 0 1 400px;
+  height: 200px;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Estilo de texto */
+.title {
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.description {
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.right-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.right-description {
+  color: white;
+}
+
+.loading-screen {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  z-index: 9999;
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  animation: jump 1.2s infinite;
+}
+
+.dot1 { animation-delay: 0s; }
+.dot2 { animation-delay: 0.4s; }
+.dot3 { animation-delay: 0.8s; }
+
+@keyframes jump {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-20px); }
+}
+
+.galeria-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.carrusel-container {
+  position: relative;
+  width: 100%;
+  height: 400px; /* altura fija del carrusel */
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff; /* opcional para ver mejor los bordes */
+}
+
+.carrusel-img {
+  height: 100%;       /* ocupar el alto completo del carrusel */
+  width: auto;        /* adaptar el ancho automáticamente */
+  object-fit: scale-down; /* escalar hacia abajo sin recorte */
+  max-width: 100%;    /* no exceder el ancho del contenedor */
+  transition: opacity 0.5s ease;
+}
+
+.collage-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.collage-container img {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.collage-container img:hover {
+  transform: scale(1.05);
+}
+
+.collage-container video {
+  width: 150px;        /* Igual que las imágenes */
+  height: 100px;
+  object-fit: cover;   /* Para que mantenga proporción y recorte */
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.collage-container video:hover {
+  transform: scale(1.05);
+}
+
+
+/* Visor pantalla completa */
+.visor {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.visor-imagen {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.visor-video {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.cerrar-visor {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+/* Contenedor general de publicaciones */
+.publicaciones-section {
+  padding: 30px 30px 0px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Contenedor de la columna única */
+.one-column-section {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 50px 0px 90px; /* Cambiamos de 90px a 50px para mantener consistencia */
+  width: 100%;
+  box-sizing: border-box; /* Asegura que el padding no agregue ancho extra */
+}
+
+/* Título principal */
+.publicaciones-section .title {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+/* Contenedor de las publicaciones individuales */
+.publicaciones-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0;
+}
+
+/* Tarjeta de publicación */
+.publicacion {
+  margin-left: 0px; /* Empuja el card hacia la izquierda */
+  margin-right: 0;
+  background-color: var(--background-color);
+  border-left: 4px solid var(--primary-color);
+  border-right: 4px solid var(--primary-color);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 4px 0 15px rgba(0, 255, 0, 0.2); /* Sombra verde derecha */
+  transition: transform 0.2s ease;
+  box-sizing: border-box;
+}
+
+.publicacion h3 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 1.6rem;
+}
+
+.publicacion img {
+  width: 100%;
+  max-width: 800px;
+  height: 300px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin: 0.5rem auto 1rem auto;
+  display: block;
+}
+
+.publicacion .descripcion {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Comentarios */
+.comentarios-container {
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #ccc;
+}
+
+.comentario {
+  background-color: var(--indicator-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.comentario .nombre {
+  font-weight: bold;
+  color: var(--indicator-active);
+  margin-bottom: 0.25rem;
+}
+
+.comentario-form {
+  margin-top: 2rem; /* Más espacio sobre el formulario */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-top: 1px solid #ccc;
+  padding-top: 1rem;
+  position: relative;
+}
+
+.comentario-form .comentario-label {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.comentario-form .input-nombre {
+  width: 30%;
+  padding: 0.75rem;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.comentario-form textarea {
+  height: 80px;
+  padding: 0.75rem;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.comentario-label {
+  text-align: center;
+  margin: 0.25rem 0 0.5rem 0;
+  color: #555;
+  font-size: 0.95rem;
+
+}
+
+.btn-publicar {
+  align-self: flex-end;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--primary-color); /* color base */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, filter 0.3s ease;
+  opacity: 0.6;
+}
+
+.btn-publicar.activa {
+  opacity: 1;
+  background-color: var(--indicator-active); /* hace que se vea como el hover */
+  filter: brightness(1.1);
+}
+
+.btn-publicar:hover {
+  background-color: var(--indicator-active); /* se mantiene para hover */
+}
+
+.modal {
+  display: none; /* Se oculta por defecto */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  width: 320px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.scrollable-body {
+  max-height: calc(7 * 40px); /* Asumiendo 40px por fila */
+  overflow-y: auto;
+  width: 100%;
+}
+
+.scrollable-body table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.donaciones-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.donaciones-table th,
+.donaciones-table td {
+  border: 1px solid rgba(32, 32, 32, 0.7);
+  padding: 8px;
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #000;
+}
+
+.donaciones-table th {
+  background-color: rgba(32, 32, 32, 0.7);
+  color: #000;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.video-publicacion {
+  width: 100%;
+  max-height: 400px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.modal .form-group {
+  margin-bottom: 15px;
+}
+
+.modal .form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.modal .form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn {
+  padding: 8px 16px;
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#btn-donar {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 16px 32px;
+  background: linear-gradient(45deg, #fff8dc, #ffd700);
+  color: #6d6d6d;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto de iluminación al pasar el mouse */
+#btn-donar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0)
+  );
+  transform: skewX(-20deg);
+}
+
+/* Animación cuando se pasa el mouse */
+#btn-donar:hover::before {
+  left: 125%;
+  transition: left 0.8s ease-in-out;
+}
+
+#btn-donar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(255, 215, 0, 0.5);
+}
+
+.btn.cancel {
+  background-color: #aaa;
+}
+
+#redes-wrapper {
+  border-top: 2px solid #747474;
+  border-bottom: 2px solid #747474;
+}
+
+#redes-container {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;     /* Oculta scroll vertical */
+  white-space: nowrap;    /* Evita salto de línea (útil para evitar wrap) */
+  gap: 30px;
+  padding: 5px 10px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  max-height: 140px;      /* O la altura que necesites para que no crezca mucho */
+}
+
+#redes-container::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30px;
+  height: 100%;
+  background: linear-gradient(to left, white, transparent);
+  pointer-events: none;
+}
+
+.red-social {
+  scroll-snap-align: center;
+  min-width: 140px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  background: none;
+  box-shadow: none;
+  max-height: 100px; /* Igual que contenedor, o menos */
+  overflow: hidden;  /* Para que no crezca en altura */
+}
+
+.red-social:hover {
+  transform: scale(1.1);
+}
+
+.icon-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  max-height: 60px;
+}
+
+.icon-label {
+  font-size: 14px;
+  color: #444;
+}
+
+.icon-descripcion {
+  font-size: 12px;
+  color: #666;
+}
+
+#redes-wrapper .scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.2);
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+  display: none;
+}
+
+#redes-wrapper #scroll-left { left: 5px; }
+#redes-wrapper #scroll-right { right: 5px; }
+
+#redes-wrapper {
+  position: relative; /* <-- agregá esto */
+  border-top: 2px solid #747474;
+  border-bottom: 2px solid #747474;
+  margin: 30px 0;
+  padding: 10px 0;
+}
+
+/* Activar sombras visibles según clase */
+#redes-container.shadow-left::before {
+  display: block;
+}
+#redes-container.shadow-right::after {
+  display: block;
+}
+
+
+/* Sombras indicadoras solo en pantallas pequeñas */
+@media (max-width: 550px) {
+  body {
+    padding: 20px 15px;
+  }
+  .comentario,
+  .comentario .nombre,
+  .comentario .texto {
+    text-align: left;
+  }
+
+  .left-column,
+  .right-column {
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+  }
+
+  /* Removido el bloque anterior general de .right-column */
+
+  #donaciones .right-column {
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .donaciones-table th {
+  font-weight: bold;
+  color: #000 !important; /* Fuerza texto negro */
+  }
+
+  #donaciones .tabla-donaciones-wrapper {
+    margin-top: 0 !important;
+    align-self: flex-start;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .donaciones-table {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 14px;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .one-column-section {
+    padding-left: 15px;
+    padding-right: 15px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .content-section {
+    padding: 20px 15px;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .publicacion {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .comentario-form .input-nombre {
+    width: 100%;
+  }
+
+  .nav-button {
+    padding: 12px 8px;
+    font-size: 14px;
+  }
+
+  .red-social {
+  min-width: 120px; /* si 140 era demasiado en pantallas pequeñas */
+  max-width: 140px;  /* para evitar que crezcan descontroladamente */
+  }
+
+  #redes-container::before,
+  #redes-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 30px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  #redes-container::before {
+    left: 0;
+    background: linear-gradient(to right, white, transparent);
+    display: none;
+  }
+
+  #redes-container::after {
+    right: 0;
+    background: linear-gradient(to left, white, transparent);
+    display: none;
+  }
+
+  #redes-wrapper {
+    position: relative;
+  }
+
+  #redes-container {
+  max-width: 100vw;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  }
+}
+
