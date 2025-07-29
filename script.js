@@ -1,12 +1,12 @@
 // Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyCQa365zkgZjCWS6sXje3f4psV45bqa-KY",
-  authDomain: "upuhdb.firebaseapp.com",
-  projectId: "upuhdb",
-  storageBucket: "upuhdb.appspot.com",
-  messagingSenderId: "664347935119",
-  appId: "1:664347935119:web:dd68d9578a8832540ecbfa",
-  measurementId: "G-KFCSFRLZV1"
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
+  measurementId: ""
 };
 
   firebase.initializeApp(firebaseConfig);
